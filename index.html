@@ -1,0 +1,44 @@
+<!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+* {margin:5pt}
+table,tr,th,td {
+    border:1pt solid black;
+}
+</style> -->
+<h1>Chopped Api</h1>
+<p>This is a consumption-only API — only the HTTP GET method is available on resources. No authentication is required to access this API, and all resources are fully open and available. </p>
+<p>Have questions? Ideas? Shoot me an email-zdk9@yahoo.com</p>
+<h3>Episode Resource Parameters</h3>
+<table >
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Type</th>
+    </tr>
+    <tr>
+        <td>Season</td><td>The season it aired (duh). Seasons run numerically from 1 to 42 with additional "Specials" and 5 "Grill Masters" seasons</td><td>integer, except for the specials and grill masters which are strings</td>
+    </tr>
+    <tr>
+        <td>Seriesno</td><td>The order in the entire series</td><td>integer, except for the specials which are number sequentially on their own and prefaced w/ "S"</td>
+    </tr>
+    <tr><td>Seasonno</td><td>Order in its season</td><td>integer</td></tr>
+    <tr><td>Title</td><td>Episode's Title</td><td>string</td></tr>
+    <tr><td>Premiere</td><td>First air date</td><td>datetime</td></tr>
+    <tr><td>Courses</td><td>The ingredients for each course</td><td>dictionary with keys for "Appetizer","Entree", and "Dessert", with values as arrays if ingredient strings</td></tr>
+    <tr><td>Judges</td><td>The judges for that episode</td><td>array of name strings</td></tr>
+    <tr><td>Contestants</td><td>The chefs in order of elimination (i.e. first out after appetizer, second out after entree, third out after dessert, last is winner)</td><td>array of name strings</td></tr>
+    <tr><td>Notes</td><td>Any applicable notes for the episode</td><td>string</td></tr>
+</table>
+<h3>Endpoints</h3>
+<table>
+    <tr><td>zachkaz.com/chopped/api/{seriesno}</td><td>one particular episode</td></tr>
+    <tr><td>zachkaz.com/chopped/api/?title={title}</td><td>one particular episode (exact match only)</td></tr>
+    <tr><td>zachkaz.com/chopped/api/{season}</td><td>all episodes of a particular season</td></tr>
+    <tr><td>zachkaz.com/chopped/api/index</td><td>all episodes (roughly 500)</td></tr>
+    <tr><td>zachkaz.com/chopped/api/?judge={name}</td><td>all episodes judged by them (exact match only)</td></tr>
+    <tr><td>zachkaz.com/chopped/api/?contestant={name}</td><td>all episodes cooked by them (exact match only)</td></tr>
+    <tr><td>zachkaz.com/chopped/api/?ingredient={name}</td><td>all episodes featuring that ingredient (all matches)</td></tr>
+    
+</table>
+
+<p>All information is taken from Wikipedia 5/22/19</p>
